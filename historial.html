@@ -106,12 +106,16 @@
           <div class="modal-body" id="detalleComprobante">
             <!-- Detalle generado dinámicamente -->
           </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-primary" id="btnDescargarPDF">Descargar Comprobante</button>
+          </div>
         </div>
       </div>
     </div>
   </main>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
   <script>
     const movimientos = {
       'A12345': {
@@ -124,8 +128,11 @@
         fecha: '2025-09-14', tipo: 'Pago de servicios (Internet)', descripcion: 'Pago de Internet', monto: 400, saldo: 2750, referencia: 'A98765', detalle: 'Pago de servicio de Internet. Referencia: A98765. Monto: $400. Saldo después: $2750.' },
     };
 
+    let comprobanteActual = null;
+
     function mostrarComprobante(ref) {
       const mov = movimientos[ref];
+      comprobanteActual = mov;
       document.getElementById('detalleComprobante').innerHTML = `
         <strong>Fecha:</strong> ${mov.fecha}<br>
         <strong>Tipo:</strong> ${mov.tipo}<br>
@@ -139,6 +146,26 @@
       var modal = new bootstrap.Modal(document.getElementById('modalComprobante'));
       modal.show();
     }
+
+    document.addEventListener('DOMContentLoaded', function() {
+      document.getElementById('btnDescargarPDF').addEventListener('click', function() {
+        if (!comprobanteActual) return;
+        const { jsPDF } = window.jspdf;
+        const doc = new jsPDF();
+        doc.setFontSize(16);
+        doc.text('Comprobante de Movimiento', 10, 20);
+        doc.setFontSize(12);
+        doc.text(`Fecha: ${comprobanteActual.fecha}`, 10, 35);
+        doc.text(`Tipo: ${comprobanteActual.tipo}`, 10, 45);
+        doc.text(`Descripción: ${comprobanteActual.descripcion}`, 10, 55);
+        doc.text(`Monto: $${comprobanteActual.monto}`, 10, 65);
+        doc.text(`Saldo Disponible: $${comprobanteActual.saldo}`, 10, 75);
+        doc.text(`Número de Referencia: ${comprobanteActual.referencia}`, 10, 85);
+        doc.text('----------------------------------------', 10, 95);
+        doc.text(`Detalle: ${comprobanteActual.detalle}`, 10, 105, { maxWidth: 180 });
+        doc.save(`Comprobante_${comprobanteActual.referencia}.pdf`);
+      });
+    });
   </script>
 
   <footer class="text-center mt-5">
