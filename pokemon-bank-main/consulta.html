@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Depositos Pokémon Bank</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <style>
+    body {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: #333;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      padding: 20px 0 0 0;
+    }
+
+    .text-white-shadow {
+      color: white;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    }
+
+    nav ul {
+      text-align: center;
+      list-style-type: none;
+      padding: 0;
+      margin-bottom: 0;
+    }
+
+    nav ul li {
+      display: inline;
+      margin-right: 15px;
+    }
+
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s ease;
+    }
+
+    nav ul li a:hover {
+      text-decoration: underline;
+      color: #ffd700;
+    }
+
+        .navbar-nav .nav-link {
+    color: white !important;
+    font-weight: bold;
+    transition: color 0.3s ease;
+    }
+
+    .navbar-nav .nav-link:hover {
+    color: #ffd700 !important; /* dorado */
+    }
+
+    main {
+      display: flex;
+      
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .depositosBox {
+      background-color: rgba(255, 255, 255, 0.95);
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      width: 100%;
+      max-width: 600px;
+      text-align: center;
+    }
+
+    .depositosBox input {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border: 1px solid gainsboro;
+      border-radius: 8px;
+      box-sizing: border-box;
+    }
+
+    .depositosBox button {
+      background-color: #667eea;
+      color: white;
+      border: none;
+      padding: 12px 25px;
+      border-radius: 25px;
+      font-weight: bold;
+      cursor: pointer;
+      width: 100%;
+      transition: background-color 0.3s ease;
+    }
+
+    .depositosBox button:hover {
+      background-color: #5a67d8;
+    }
+
+    footer {
+      background-color: #333;
+      color: white;
+      text-align: center;
+      padding: 20px 10px;
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 768px) {
+      .depositosBox h1 {
+        font-size: 1.5rem;
+      }
+
+      .depositosBox h3 {
+        font-size: 1rem;
+      }
+    }
+    @media (max-width: 991.98px) {
+  header {
+    padding-top: 10px; /* reduce top padding */
+    padding-bottom: 0; /* evita el padding inferior */
+  }
+
+  #hamburgerMenu {
+    margin-bottom: 0;
+    padding: 8px 12px; 
+    padding-bottom: 0%;
+  }
+
+  .navbar {
+    padding-top: 0.25rem;
+    padding-bottom: 0.25rem;
+  }
+}
+
+  </style>
+</head>
+<body>
+    <header>
+        <div class="container text-center">
+            <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/25.png"
+            alt="Pikachu" style="width: 120px; height: 120px; filter: drop-shadow(0 0 20px rgba(255,255,255,0.5));">
+            <h1 class="text-white-shadow">Pokémon Bank</h1>
+            <p style="color: white;">
+                <strong>Bienvenido:</strong> Usuario de Prueba<br>
+                <small>Cuenta: 1234567890</small>
+            </p>
+        </div>
+        <div id="mobileMenu" class="d-lg-none d-flex align-items-center px-3 py-2" style="background-color: #333;">
+            <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/25.png"
+                alt="Logo" style="width: 40px; height: 40px; filter: brightness(0) invert(1); margin-right: 10px;">
+            <button id="hamburgerBtn" class="btn btn-outline-light" style="border: none;"> ☰
+            </button>
+        </div>
+
+        <div id="hamburgerMenu" class="d-lg-none" style="display: none; background-color: #333;">
+        <ul class="list-unstyled m-0 p-3">
+            <li><a class="text-white text-decoration-none d-block py-1" href="menu.html">Menu</a></li>
+            <li><a class="text-white text-decoration-none d-block py-1" href="deposito.html">Deposito</a></li>
+            <li><a class="text-white text-decoration-none d-block py-1" href="retiro.html">Retirar</a></li>
+            <li><a class="text-white text-decoration-none d-block py-1" href="consulta de Saldo.html">Consulta de Saldo</a></li>
+            <li><a class="text-white text-decoration-none d-block py-1" href="pago de Servicios.html">Pago de Servicios</a></li>
+            <li><a class="text-white text-decoration-none d-block py-1" href="historial.html">Historial</a></li>
+            <li><a class="text-white text-decoration-none d-block py-1" href="analisis.html">Analisis Grafico</a></li>
+        </ul>
+        </div>
+        <nav class="navbar navbar-expand-lg">
+            <div class="container-fluid justify-content-center">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMenu"
+                aria-controls="navbarMenu" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+                </button>
+                    <div class="collapse navbar-collapse justify-content-center" id="navbarMenu">
+                        <ul class="navbar-nav">
+                            <li class="nav-item"><a class="nav-link" href="menu.html">Menu</a></li>
+                            <li class="nav-item"><a class="nav-link" href="deposito.html">Deposito</a></li>
+                            <li class="nav-item"><a class="nav-link" href="retiro.html">Retirar</a></li>
+                            <li class="nav-item"><a class="nav-link" href="consulta de Saldo.html">Consulta de Saldo</a></li>
+                            <li class="nav-item"><a class="nav-link" href="pago de Servicios.html">Pago de Servicios</a></li>
+                            <li class="nav-item"><a class="nav-link" href="historial.html">Historial</a></li>
+                            <li class="nav-item"><a class="nav-link" href="analisis.html">Analisis Grafico</a></li>
+                        </ul>
+                    </div>
+            </div>
+        </nav>
+    </header>
+   <script>
+    const hamburgerBtn = document.getElementById('hamburgerBtn');
+    const hamburgerMenu = document.getElementById('hamburgerMenu');
+
+    hamburgerBtn.addEventListener('click', () => {
+        hamburgerMenu.style.display = (hamburgerMenu.style.display === 'block') ? 'none' : 'block';
+    });
+
+    window.addEventListener('resize', () => {
+        if (window.innerWidth >= 992) {
+        hamburgerMenu.style.display = 'none';
+        }
+    });
+    </script>
+    <main>
+    <div class="depositosBox card">
+      <h1>Bienvenido al área de consulta de tu saldo</h1>
+      <br>
+      <h3>Actualmente tu saldo es:</h3>
+      <br>
+      <h2>$ 15,000.00</h2>
+      <br>
+        <div class="d-grid">
+          <a href="index.html" class="btn btn-danger btn-lg">
+            🚪 Cerrar Sesión
+          </a>
+        </div>
+    </div>
+  </main>
+    <script>
+      document.querySelector("form").addEventListener("submit", function (e) {
+        e.preventDefault(); // Evita el envío real del formulario
+        const modal = new bootstrap.Modal(document.getElementById("depositModal"));
+        modal.show();
+      });
+    </script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+ <footer>
+    Pokémon Bank S.A. de C.V. © 2025<br>
+    Atención al cliente: 800-123-4567 | contacto@pokemonbank.com<br>
+    Todos los derechos reservados.
+  </footer>
+</html>
