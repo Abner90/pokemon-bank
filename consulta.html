@@ -7,135 +7,125 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
   <style>
-    body {
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-      min-height: 100vh;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      margin: 0;
-      padding: 0;
-    }
-
-    header {
-      background-color: #333;
-      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-      padding: 20px 0 0 0;
-    }
-
-    .text-white-shadow {
-      color: white;
-      text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-    }
-
-    nav ul {
-      text-align: center;
-      list-style-type: none;
-      padding: 0;
-      margin-bottom: 0;
-    }
-
-    nav ul li {
-      display: inline;
-      margin-right: 15px;
-    }
-
-    nav ul li a {
-      color: white;
-      text-decoration: none;
-      font-weight: bold;
-      transition: color 0.3s ease;
-    }
-
-    nav ul li a:hover {
-      text-decoration: underline;
-      color: #ffd700;
-    }
-
-        .navbar-nav .nav-link {
-    color: white !important;
-    font-weight: bold;
-    transition: color 0.3s ease;
-    }
-
-    .navbar-nav .nav-link:hover {
-    color: #ffd700 !important; /* dorado */
-    }
-
-    main {
-      display: flex;
-      
-      justify-content: center;
-      padding: 20px;
-    }
-
-    .depositosBox {
-      background-color: rgba(255, 255, 255, 0.95);
-      padding: 30px;
-      border-radius: 15px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-      width: 100%;
-      max-width: 600px;
-      text-align: center;
-    }
-
-    .depositosBox input {
-      width: 100%;
-      padding: 10px;
-      margin-bottom: 15px;
-      border: 1px solid gainsboro;
-      border-radius: 8px;
-      box-sizing: border-box;
-    }
-
-    .depositosBox button {
-      background-color: #667eea;
-      color: white;
-      border: none;
-      padding: 12px 25px;
-      border-radius: 25px;
-      font-weight: bold;
-      cursor: pointer;
-      width: 100%;
-      transition: background-color 0.3s ease;
-    }
-
-    .depositosBox button:hover {
-      background-color: #5a67d8;
-    }
-
-    footer {
-      background-color: #333;
-      color: white;
-      text-align: center;
-      padding: 20px 10px;
-      font-size: 0.9rem;
-    }
-
-    @media (max-width: 768px) {
-      .depositosBox h1 {
-        font-size: 1.5rem;
-      }
-
-      .depositosBox h3 {
-        font-size: 1rem;
-      }
-    }
-    @media (max-width: 991.98px) {
+   html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+body {
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  min-height: 100vh;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+header {
+  background-color: #333;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  padding: 20px 0 0 0;
+}
+.text-white-shadow {
+  color: white;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+nav ul {
+  text-align: center;
+  list-style-type: none;
+  padding: 0;
+  margin-bottom: 0;
+}
+nav ul li {
+  display: inline;
+  margin-right: 15px;
+}
+nav ul li a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+nav ul li a:hover {
+  text-decoration: underline;
+  color: #ffd700;
+}
+.navbar-nav .nav-link {
+  color: white !important;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+.navbar-nav .nav-link:hover {
+  color: #ffd700 !important;
+}
+main {
+  flex: 1 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+.depositosBox {
+  background-color: rgba(255, 255, 255, 0.95);
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  width: 100%;
+  max-width: 600px;
+  text-align: center;
+}
+.depositosBox input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid gainsboro;
+  border-radius: 8px;
+  box-sizing: border-box;
+}
+.depositosBox button {
+  background-color: #667eea;
+  color: white;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 25px;
+  font-weight: bold;
+  cursor: pointer;
+  width: 100%;
+  transition: background-color 0.3s ease;
+}
+.depositosBox button:hover {
+  background-color: #5a67d8;
+}
+footer {
+  background-color: #333;
+  color: white;
+  text-align: center;
+  padding: 20px 10px;
+  font-size: 0.9rem;
+  flex-shrink: 0;
+}
+@media (max-width: 768px) {
+  .depositosBox h1 {
+    font-size: 1.5rem;
+  }
+  .depositosBox h3 {
+    font-size: 1rem;
+  }
+}
+@media (max-width: 991.98px) {
   header {
     padding-top: 10px; /* reduce top padding */
-    padding-bottom: 0; /* evita el padding inferior */
+    padding-bottom: 0;
   }
-
   #hamburgerMenu {
     margin-bottom: 0;
-    padding: 8px 12px; 
+    padding: 8px 12px;
     padding-bottom: 0%;
   }
-
   .navbar {
     padding-top: 0.25rem;
     padding-bottom: 0.25rem;
   }
 }
+
 
   </style>
 </head>
