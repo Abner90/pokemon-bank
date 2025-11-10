@@ -148,13 +148,12 @@ const transacciones = {
 
         guardar(user);
         this.render();
-    }
-,
+    },
+
+    //funcion para generar numero de referencia unico para cada transaccion
     generarNumeroReferencia() {
-        // Genera una referencia única con prefijo, timestamp y un número aleatorio de 3 dígitos
         const timestamp = Date.now();
         const random = Math.floor(Math.random() * 1000);
-        // Aseguramos que el aleatorio tenga 3 dígitos (ej. 007)
         const randomPadded = String(random).padStart(3, "0");
         return `REF${timestamp}${randomPadded}`;
     }
