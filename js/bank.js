@@ -72,7 +72,9 @@ const transacciones = {
 
             // Registrar historial
             user.transacciones.push({
+                referencia: this.generarNumeroReferencia(),
                 tipo: "Depósito",
+                descripcion: "Depósito de fondos",
                 monto: monto,
                 fecha: new Date().toLocaleString()
             });
@@ -114,7 +116,9 @@ const transacciones = {
 
             // Registrar historial
             user.transacciones.push({
+                referencia: this.generarNumeroReferencia(),
                 tipo: "Retiro",
+                descripcion: "Retiro de fondos cajero automático",
                 monto: monto,
                 fecha: new Date().toLocaleString()
             });
@@ -136,6 +140,7 @@ const transacciones = {
 
         // Registrar historial
         user.transacciones.push({
+            referencia: this.generarNumeroReferencia(),
             tipo: "Consulta",
             monto: 0,
             fecha: new Date().toLocaleString()
@@ -143,5 +148,13 @@ const transacciones = {
 
         guardar(user);
         this.render();
+    },
+
+    //funcion para generar numero de referencia unico para cada transaccion
+    generarNumeroReferencia() {
+        const timestamp = Date.now();
+        const random = Math.floor(Math.random() * 1000);
+        const randomPadded = String(random).padStart(3, "0");
+        return `REF${timestamp}${randomPadded}`;
     }
 };
